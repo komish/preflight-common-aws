@@ -1,0 +1,13 @@
+ref:
+  as: preflight-common
+  from_image:
+    namespace: ci
+    name: preflight-common
+    tag: v1
+  commands: preflight-common-commands.sh
+  resources:
+    requests:
+      cpu: 300m
+      memory: 300Mi
+  documentation: |-
+    The preflight suite of tests.
