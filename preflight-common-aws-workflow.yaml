@@ -1,1 +1,23 @@
-
+workflow:
+  as: preflight-common-aws
+  steps:
+    cluster_profile: aws-cpaas
+    env:
+      BASE_DOMAIN: cpaas-ci.devcluster.openshift.com
+      OO_CHANNEL: "4.3"
+      OO_INSTALL_NAMESPACE: '!create'
+      OO_PACKAGE: e2e-test-operator
+      OO_TARGET_NAMESPACES: '!install'
+      PYXIS_URL: ""
+    pre:
+    - chain: ipi-aws-pre
+    test:
+    - ref: preflight-common
+    post:
+    - chain: ipi-aws-post
+  documentation: |-
+    Installs a cluster with a default configuration on AWS and execute a
+    preflight suite of tests.
+    Important: Parameter values in `env` are supposed to be used only in rehearsals
+    and serve as "testing defaults". Production jobs should always override them
+    via `preflight-trigger`.
