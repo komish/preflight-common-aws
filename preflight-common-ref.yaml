@@ -1,9 +1,6 @@
 ref:
   as: preflight-common
-  from_image:
-    namespace: preflight
-    name: preflight-common
-    tag: v1
+  from: base
   commands: preflight-common-commands.sh
   resources:
     requests:
