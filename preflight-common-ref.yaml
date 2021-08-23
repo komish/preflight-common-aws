@@ -1,7 +1,7 @@
 ref:
   as: preflight-common
   from_image:
-    namespace: ci
+    namespace: preflight
     name: preflight-common
     tag: v1
   commands: preflight-common-commands.sh
